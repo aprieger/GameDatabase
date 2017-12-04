@@ -10,19 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202025534) do
+ActiveRecord::Schema.define(version: 4) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "achievements", force: :cascade do |t|
+    t.string "title"
+    t.string "game"
+    t.integer "status"
+    t.string "requirement"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "title"
+    t.integer "status"
     t.integer "year"
+    t.string "developer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "quests", force: :cascade do |t|
     t.string "title"
+    t.string "game"
     t.integer "status"
+    t.string "location"
+    t.string "giver"
+    t.string "faction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "title"
+    t.string "game"
+    t.integer "status"
+    t.string "type"
+    t.string "ammo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
